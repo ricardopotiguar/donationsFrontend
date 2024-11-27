@@ -1,6 +1,6 @@
 # Donation Frontend
 
- É uma sistema web desenvolvida com Node.js e React, projetado para gerenciar um sistema de doação, doares e pessoas ou instituições que possuem necessidade, o objetivo é conectar pessoas que precisam de algo com pessoas disposta a doar algo.
+ É uma sistema web desenvolvido com Node.js e React, projetado para gerenciar um sistema de doação, doares e pessoas ou instituições que possuem necessidade, o objetivo é conectar pessoas que precisam de algo com pessoas disposta a doar algo.
 
  ## Criando o ambiente local ##
 

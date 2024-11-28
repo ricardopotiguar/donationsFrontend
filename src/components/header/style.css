@@ -1,0 +1,35 @@
+header {
+    display: flex;
+    justify-content: space-between; /* Título à esquerda e botões à direita */
+    align-items: center; /* Centraliza verticalmente */
+    padding: 5px 20px;
+    color: white;
+    background: linear-gradient(180deg, #3e3d72 0%, rgba(30, 29,79, 0.8) 100%);
+
+    & button {
+        border-radius: 10px;
+        background-color: #8B8AE1;
+        height: 25px;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        font-size: 12px;
+        width: 120px;
+    }
+
+    & button:hover {
+        opacity: 0.7;
+    }
+}
+
+.buttons {
+    margin-right: 200px;
+    display: flex;
+    justify-content: flex-end; /* Alinha os botões no canto direito */
+    gap: 20px; /* Espaço entre os botões */
+}
+
+h1 {
+    margin-left: 200px;
+    font-size: 20px;
+}

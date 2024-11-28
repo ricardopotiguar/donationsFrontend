@@ -1,32 +1,59 @@
-import { useEffect } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import './style.css'
 import Trash from '../../assets/trash.png'
 import api from '../../services/api.js'
 
-
-
 function Home() {
+  const [users, setUsers] = useState([])
 
-  let users = []
+  const inputName = useRef()
+  const inputAge = useRef()
+  const inputEmail = useRef()
+  const inputPhone = useRef()
+  const inputPassword = useRef()
 
   async function getUsers(){
-    users = await api.get('/api/v1/usuarios')
+    const responseUsuarios = await api.get('/api/v1/usuarios')
+    setUsers(responseUsuarios.data)
     console.log(users)
   }
 
+  async function createUsers(){
+    await api.post('/api/v1/usuarios', {
+      name: inputName.current.value,
+      age: inputAge.current.value,
+      email: inputEmail.current.value,
+      type: "doador",
+      phone: inputPhone.current.value,
+      password: inputPassword.current.value
+    })
+    getUsers()
+  }
+
+  async function deleteUser(userId){
+    await api.delete(`/api/v1/usuarios/${userId}`)
+    getUsers()
+  }
+ 
 
   useEffect(() => {
-    
+    getUsers()
   }, []);
 
   return (
     <div className='container'>
+    <div>
+      <button>Criar conta</button>
+      <button>Entrar</button>
+    </div>
       <form>
         <h1>Cadastro de Usuários</h1>
-        <input name='nome' type='text' placeholder='Nome' />
-        <input name='idade' type='number' placeholder='Idade' />
-        <input name='email' type='email' placeholder='Email' />
-        <button type='button'>Cadastrar</button>
+        <input name='nome' type='text' placeholder='Nome' ref={inputName}/>
+        <input name='idade' type='number' placeholder='Idade' ref={inputAge}/>
+        <input name='email' type='email' placeholder='Email' ref={inputEmail}/>
+        <input name='phone' type='tel' placeholder='Celular' ref={inputPhone}/>
+        <input name='password' type='password' placeholder='Senha' ref={inputPassword}/>
+        <button type='button' onClick={createUsers}>Cadastrar</button>
       </form>
 
       {users.map(user => (
@@ -37,7 +64,7 @@ function Home() {
             <p>Idade: <span>{ user.age}</span></p>
             <p>Email: <span>{ user.email}</span></p>
           </div>
-          <button>
+          <button onClick={() => deleteUser(user.id)}>
             <img src={Trash} alt="trash" style={{ width: '30px', height: 'auto' }} />
           </button>
         </div>

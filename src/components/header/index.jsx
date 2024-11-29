@@ -7,11 +7,15 @@ const Header = () => {
     const navigate = useNavigate()
 
     return (
-        <header>
-            <h1 id='titlePlatform' onClick={() => navigate('/')}>Plataforma de Doações</h1>
-            <div className="buttons">
-                <button onClick={() => navigate('/cadastro')}>Criar conta</button>
-                <button>Entrar</button>
+        <header id='header'>
+            <div id='div-header'>
+                <div>
+                    <h1 id='titlePlatform' onClick={() => navigate('/')}>Plataforma de Doações</h1>
+                </div>
+                <div className="buttons">
+                    <button onClick={() => navigate('/cadastro')}>Criar conta</button>
+                    <button>Entrar</button>
+                </div>
             </div>
         </header>
     )

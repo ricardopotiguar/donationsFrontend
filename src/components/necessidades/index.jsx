@@ -29,9 +29,16 @@ function CadastroUsuario() {
       password: inputPassword.current.value
     })
     getUsers()
-  } 
+  }
+
+  async function deleteUser(userId){
+    await api.delete(`/api/v1/usuarios/${userId}`)
+    getUsers()
+  }
+ 
 
   useEffect(() => {
+    getUsers()
   }, []);
 
   return (
@@ -47,6 +54,20 @@ function CadastroUsuario() {
           <input name='password' type='password' placeholder='Senha' ref={inputPassword}/>
           <button type='button' onClick={createUsers}>Cadastrar</button>
         </form>
+
+        {users.map(user => (
+
+          <div key={user.id} className='card'>
+            <div>
+              <p>Nome: <span>{ user.name}</span></p>
+              <p>Idade: <span>{ user.age}</span></p>
+              <p>Email: <span>{ user.email}</span></p>
+            </div>
+            <button onClick={() => deleteUser(user.id)}>
+              <img src={Trash} alt="trash" style={{ width: '30px', height: 'auto' }} />
+            </button>
+          </div>
+        ))}
      </div>
     </div>
   )
@@ -54,23 +75,3 @@ function CadastroUsuario() {
 
 export default CadastroUsuario
 
-
-/* [{
-  id: "1",
-  name: 'Ricardo Potigar',
-  age: 37,
-  email: 'ricardopotiguar@gmail.com'
-},
-{
-  id: "2",
-  name: 'Ricardo Potigar 2',
-  age: 37,
-  email: 'ricardopotiguar2@gmail.com'
-},
-{
-  id: "3",
-  name: 'Ricardo Potigar 3',
-  age: 37,
-  email: 'ricardopotiguar3@gmail.com'
-}
-] */

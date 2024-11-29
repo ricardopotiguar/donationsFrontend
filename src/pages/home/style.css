@@ -125,7 +125,7 @@ body {
   gap: 80px;
 
   & button {
-    border-radius: 10px;
+    border-radius: 5px;
     background: linear-gradient(180deg, #8e8cbe 0%, rgba(64, 62, 158, 0.6) 100%);
     height: 35px;
     width: 400px;

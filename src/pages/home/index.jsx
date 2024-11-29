@@ -6,9 +6,11 @@ import IconeCadastro from '../../assets/icone-cadastro.png'
 import IconeDoacao from '../../assets/localizando-necessidades.png'
 import IconeTrocaDeContatos from '../../assets/aperto-de-maos.png'
 
+import { useNavigate } from 'react-router-dom';
+
 
 function Home() {
-
+  const navigate = useNavigate()
 
   useEffect(() => {
 
@@ -60,6 +62,12 @@ function Home() {
           </div>
         </div>
         <br />
+        <div className='box'>
+          <div>
+            <h2>Faça seu cadastro e ajude quem mais precisa </h2>
+          </div>
+          <div><button onClick={() => navigate('/cadastro')}>Clique aqui e faça seu cadastro</button></div>
+        </div>
       </div>
     </div>
   )

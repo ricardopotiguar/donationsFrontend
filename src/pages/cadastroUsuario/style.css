@@ -27,7 +27,7 @@ form {
 
   & button {
     border-radius: 15px;
-    background-color: #8B8AE1;
+    background: linear-gradient(180deg, #8e8cbe 0%, rgba(64, 62, 158, 0.6) 100%);
     height: 40px;
     border: none;
     font-weight: bold;

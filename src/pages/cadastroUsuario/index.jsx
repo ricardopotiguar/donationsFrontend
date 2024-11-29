@@ -46,7 +46,7 @@ function CadastroUsuario() {
       < Header />
       <div className='container'>
         <form>
-          <h2>Cadastro de Usuários - Cadastro de Usuários</h2>
+          <h2>Faça seu Cadastro</h2>
           <input name='nome' type='text' placeholder='Nome' ref={inputName}/>
           <input name='idade' type='number' placeholder='Idade' ref={inputAge}/>
           <input name='email' type='email' placeholder='Email' ref={inputEmail}/>

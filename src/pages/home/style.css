@@ -10,6 +10,11 @@ body {
   background-position: center; /* Centraliza a imagem */
 }
 
+.banner img {
+  position: relative; /* Opcional, só se necessário para ajustar o contexto */
+  z-index: 1; /* Certifica que a imagem fica atrás do header */
+}
+
 .banner-content {
 
   & h1 {

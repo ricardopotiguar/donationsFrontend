@@ -1,0 +1,99 @@
+.footer {
+ /*    background-color: #282828; */
+/*     background-color: #434788; */
+    background: linear-gradient(180deg, #363467 0%, rgba(56, 54, 131, 0.8) 100%);
+    color: #fff;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-section {
+    flex: 1;
+    margin: 10px;
+  }
+  
+  .footer-section h4 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 8px;
+  }
+  
+  .footer-section ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .footer-section ul li a:hover {
+    color: #00aaff;
+  }
+  
+  .footer-section p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .social-icons .icon {
+/*     width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    color: #282828;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s; */
+
+    width: 40px; /* Tamanho fixo para o ícone */
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: background-color 0.3s, color 0.3s;
+    overflow: hidden; /* Garante que imagens maiores não "escapem" */
+  }
+
+  .social-icons .icon img {
+    width: 95%; /* Faz com que a imagem preencha o espaço do ícone */
+    height: 95%;
+    object-fit: cover; /* Ajusta a imagem para caber no espaço sem distorcer */
+  }
+  
+  .social-icons .icon:hover {
+    background-color: #00aaff;
+    color: #fff;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+  }
+  

@@ -1,12 +1,14 @@
 import { useEffect, useState, useRef } from 'react'
 import './style.css'
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 import BannerHome from '../../assets/banner_ajuda.jpg'
 import IconeCadastro from '../../assets/icone-cadastro.png'
 import IconeDoacao from '../../assets/localizando-necessidades.png'
 import IconeTrocaDeContatos from '../../assets/aperto-de-maos.png'
 
 import { useNavigate } from 'react-router-dom';
+
 
 
 function Home() {
@@ -74,6 +76,7 @@ function Home() {
         </div>
         <div><button onClick={() => navigate('/cadastro')}>Clique aqui e faça seu cadastro</button></div>
       </div>
+      < Footer />
     </div>
   )
 }

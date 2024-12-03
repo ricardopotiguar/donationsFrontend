@@ -3,6 +3,7 @@ import './style.css'
 import Trash from '../../assets/trash.png'
 import api from '../../services/api.js'
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 
 function CadastroUsuario() {
   const [users, setUsers] = useState([])
@@ -48,6 +49,8 @@ function CadastroUsuario() {
           <button type='button' onClick={createUsers}>Cadastrar</button>
         </form>
      </div>
+     <br />
+     < Footer />
     </div>
   )
 }

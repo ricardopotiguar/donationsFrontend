@@ -1,5 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
 import './style.css'
+import Header from '../../components/header';
+import Footer from '../../components/footer';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {

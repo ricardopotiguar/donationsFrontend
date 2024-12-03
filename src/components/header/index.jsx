@@ -31,12 +31,12 @@ const Header = () => {
                     </button>
                     <ul className={`menu-list${menuOpen ? ' active' : ''}`}>
                         <li><a onClick={() => navigate('/cadastro')}>Criar conta</a></li>
-                        <li><a onClick={() => navigate('/cadastro')}>Entrar</a></li>
+                        <li><a onClick={() => navigate('/login')}>Entrar</a></li>
                     </ul>
                 </nav>
                 <div className="div-buttons">
                     <button onClick={() => navigate('/cadastro')}>Criar conta</button>
-                    <button>Entrar</button>
+                    <button onClick={() => navigate('/login')}>Entrar</button>
                 </div>
             </div>
         </header>

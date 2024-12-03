@@ -66,6 +66,7 @@
     margin-left: 3%;
     margin-right: 3%;
     font-size: 25px;
+    color: #fff;
   }
 
   & p {
@@ -112,6 +113,7 @@
     margin-left: 3%;
     margin-right: 3%;
     font-size: 25px;
+    color: #fff;
   }
 
   & p {
@@ -157,6 +159,7 @@
     margin-left: 3%;
     margin-right: 3%;
     font-size: 25px;
+    color: #fff;
   }
 
   & p {
@@ -203,6 +206,7 @@
     margin-left: 3%;
     margin-right: 3%;
     font-size: 25px;
+    color: #fff;
   }
 
   & p {
@@ -241,6 +245,7 @@
   background: rgba(30, 29, 79, 0.5);
   height: 200px;
   gap: 3%;
+  color: #fff;
 
   & button {
     border-radius: 5px;

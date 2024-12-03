@@ -37,8 +37,8 @@ function CadastroUsuario() {
   return (
     <div>
       < Header />
-      <div className='container'>
-        <form>
+      <div id='container-cadastrousuario'>
+        <form id='form-cadastrousuario'>
           <h2>Faça seu Cadastro</h2>
           <input name='nome' type='text' placeholder='Nome' ref={inputName}/>
           <input name='idade' type='number' placeholder='Idade' ref={inputAge}/>
@@ -53,24 +53,3 @@ function CadastroUsuario() {
 }
 
 export default CadastroUsuario
-
-
-/* [{
-  id: "1",
-  name: 'Ricardo Potigar',
-  age: 37,
-  email: 'ricardopotiguar@gmail.com'
-},
-{
-  id: "2",
-  name: 'Ricardo Potigar 2',
-  age: 37,
-  email: 'ricardopotiguar2@gmail.com'
-},
-{
-  id: "3",
-  name: 'Ricardo Potigar 3',
-  age: 37,
-  email: 'ricardopotiguar3@gmail.com'
-}
-] */

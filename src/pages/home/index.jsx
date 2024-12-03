@@ -16,58 +16,63 @@ function Home() {
 
   }, []);
 
+
   return (
     <div>
       < Header />
-      <div className="banner">
-        <img src={BannerHome} alt="" style={{ width: '100%', height: 'auto' }} />
-        <div className="banner-content">
-          <h1>Faça parte da rede de contribuições através da Plataforma de Doações</h1>
+      <div id='container-banner-home'>
+        <div id="banner-home">
+          <img id="img-banner-home" src={BannerHome} alt="banner-home-pessoa-ajuda" />
+        </div>
+        <div id="banner-content-home">
+          <p>Faça parte da rede de contribuições através da Plataforma de Doações</p>
         </div>
       </div>
-      <div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <h1 className='secao1'>Como funciona ?</h1>
-        <div className='box-left' >
-          <div className='box-left-image'>
-            <img src={IconeCadastro} alt="" style={{ width: 'auto', height: '80%' }} />
-          </div>
-          <div>
-            <h2>Passo 1 - Cadastro das Necessidades</h2>
-            <p>As pessoas que possuem algum tipo de necessidade (produtos ou serviços) cadastram suas necessidades através de uma instituição parceira confiável.</p>
-          </div>
+      <div id='container-home-body-secao1'>
+        <h1>Como funciona ?</h1>
+      </div>
+      <div id='container-home-body-box-left1' >
+        <div id='container-home-body-box-left1-image'>
+          <img id='home-body-box-left1-image' src={IconeCadastro} alt="cadastro" />
         </div>
-        <div className='box-right' >
-          <div>
-            <h2>Passo 2 - Doação</h2>
-            <p>As pessoas que desejam contribuir com algum tipo de produto ou serviço, realizam uma busca nas necessidades cadastradas e verificam se podem contribuir com algo que está sendo pedido. Ao encontrar uma necessidade em que a pessoa doadora entenda que tenha condições de atender, ela marca na plataforma que irá realizar a doação daquele produto ou serviço solicitado.</p>
-          </div>
-          <div className='box-right-image'>
-            <img src={IconeDoacao} alt="" style={{ width: '100%', height: '100%' }} />
-          </div>
+        <div id='container-home-body-box-left1-text'>
+          <h2>Passo 1 - Cadastro das Necessidades</h2>
+          <p>As pessoas que possuem algum tipo de necessidade (produtos ou serviços) cadastram suas necessidades através de uma instituição parceira confiável.</p>
         </div>
-        <div className='box-left' >
-          <div className='box-left-image'>
-            <img src={IconeTrocaDeContatos} alt="" style={{ width: '300px', height: '80%' }} />
-          </div>
-          <div>
-            <h2>Passo 3 - Troca de contatos</h2>
-            <p>A plataforma irá compartilhar os dados de contato das pessoas envolvidas, ou seja, tanto da pessoa doadora, quanto da pessoa que possui a necessidade (em alguns casos da instituição parceira que está auxiliando a pessoa que possui a necessidade) para que possam marcar a melhor forma de realizar a entrega da doação e combinarem a melhor data e horário.</p>
-          </div>
+      </div>
+      <div id='container-home-body-box-right1' >
+        <div id='container-home-body-box-right1-text'>
+          <h2>Passo 2 - Doação</h2>
+          <p>As pessoas que desejam contribuir com algum tipo de produto ou serviço, realizam uma busca nas necessidades cadastradas e verificam se podem contribuir com algo que está sendo pedido. Ao encontrar uma necessidade em que a pessoa doadora entenda que tenha condições de atender, ela marca na plataforma que irá realizar a doação daquele produto ou serviço solicitado.</p>
         </div>
-        <br />
-        <div className='box'>
-          <div>
-            <h2>Faça seu cadastro e ajude quem mais precisa </h2>
-          </div>
-          <div><button onClick={() => navigate('/cadastro')}>Clique aqui e faça seu cadastro</button></div>
+        <div id='container-home-body-box-right1-image'>
+          <img id='home-body-box-right1-image' src={IconeDoacao} alt="cadastro" />
         </div>
+      </div>
+      <div id='container-home-body-box-right1-mobile' >
+        <div id='container-home-body-box-right1-image-mobile'>
+          <img id='home-body-box-right1-image-mobile' src={IconeDoacao} alt="cadastro" />
+        </div>
+        <div id='container-home-body-box-right1-text-mobile'>
+          <h2>Passo 2 - Doação</h2>
+          <p>As pessoas que desejam contribuir com algum tipo de produto ou serviço, realizam uma busca nas necessidades cadastradas e verificam se podem contribuir com algo que está sendo pedido. Ao encontrar uma necessidade em que a pessoa doadora entenda que tenha condições de atender, ela marca na plataforma que irá realizar a doação daquele produto ou serviço solicitado.</p>
+        </div>
+      </div>
+      <div id='container-home-body-box-left2' >
+        <div id='container-home-body-box-left2-image'>
+          <img id='home-body-box-left2-image' src={IconeTrocaDeContatos} alt="cadastro" />
+        </div>
+        <div id='container-home-body-box-left2-text'>
+          <h2>Passo 1 - Cadastro das Necessidades</h2>
+          <p>As pessoas que possuem algum tipo de necessidade (produtos ou serviços) cadastram suas necessidades através de uma instituição parceira confiável.</p>
+        </div>
+      </div>
+      <br />
+      <div id='box-cadastro'>
+        <div>
+          <h2>Faça seu cadastro e ajude quem mais precisa </h2>
+        </div>
+        <div><button onClick={() => navigate('/cadastro')}>Clique aqui e faça seu cadastro</button></div>
       </div>
     </div>
   )

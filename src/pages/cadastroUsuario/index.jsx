@@ -1,9 +1,9 @@
 import { useEffect, useState, useRef } from 'react'
 import './style.css'
-import Trash from '../../assets/trash.png'
 import api from '../../services/api.js'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
+import { useNavigate } from 'react-router-dom';
 
 function CadastroUsuario() {
   const [users, setUsers] = useState([])
@@ -29,11 +29,14 @@ function CadastroUsuario() {
       phone: inputPhone.current.value,
       password: inputPassword.current.value
     })
-    getUsers()
+
+    navigate('/sucesso');
   } 
 
   useEffect(() => {
   }, []);
+
+  const navigate = useNavigate()
 
   return (
     <div>

@@ -1,0 +1,8 @@
+#container-sucess-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Faz com que o container ocupe toda a altura da tela */
+}
+#container-sucess-body {
+    flex: 1; /* Flexível, ocupa o espaço disponível */
+}

@@ -1,14 +1,19 @@
-#container-cadastrousuario {
-  padding-top: 50px;
+#container-cadastrousuario-page {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  min-height: 100vh; /* Faz com que o container ocupe toda a altura da tela */
+}
+
+#container-cadastrousuario-body {
+  flex: 1; /* Flexível, ocupa o espaço disponível */
+  align-self: center;
+  padding-top: 20px;
 }
 
 #form-cadastrousuario {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 23px;
   padding: 30px;
   border-radius: 10px;
   background-color: #2E2D4E;

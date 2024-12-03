@@ -39,9 +39,9 @@ function CadastroUsuario() {
   const navigate = useNavigate()
 
   return (
-    <div>
+    <div id='container-cadastrousuario-page'>
       < Header />
-      <div id='container-cadastrousuario'>
+      <div id='container-cadastrousuario-body'>
         <form id='form-cadastrousuario'>
           <h2>Faça seu Cadastro</h2>
           <input name='nome' type='text' placeholder='Nome' ref={inputName}/>
@@ -52,7 +52,6 @@ function CadastroUsuario() {
           <button type='button' onClick={createUsers}>Cadastrar</button>
         </form>
      </div>
-     <br />
      < Footer />
     </div>
   )

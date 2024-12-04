@@ -25,7 +25,7 @@ function Login() {
         throw new Error(message || 'Falha na autenticação');
       }
 
-      localStorage.setItem('token', response.data.token); // Salvar token no localStorage
+      localStorage.setItem('donations-token', response.data.token); // Salvar token no localStorage
       navigate('/donation'); // Redirecionar para a área logada
 
     } catch (error) {

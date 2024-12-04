@@ -3,7 +3,7 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 
 const PrivateRoute = ({ children }) => {
-    const token = localStorage.getItem('token');
+    const token = localStorage.getItem('donations-token');
 
     if (!token) {
         return <Navigate to="/login" />;
@@ -12,16 +12,13 @@ const PrivateRoute = ({ children }) => {
     try {
         const decodedToken = jwtDecode(token);
 
-        console.log('decodedToken.exp', decodedToken.exp)
-        console.log('Date.now()', Date.now())
-
         // Verifica se o token está expirado
         if (decodedToken.exp * 1000 < Date.now()) {
-            localStorage.removeItem('token');
+            localStorage.removeItem('donations-token');
             return <Navigate to="/login" />;
         }
     } catch (error) {
-        localStorage.removeItem('token');
+        localStorage.removeItem('donations-token');
         return <Navigate to="/login" />;
     }
 

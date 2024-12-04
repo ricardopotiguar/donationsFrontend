@@ -2,13 +2,6 @@ import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { jwtDecode } from 'jwt-decode';
 
-/* const PrivateRoute = () => {
-  const token = localStorage.getItem('token');
-  return token ? <Outlet /> : <Navigate to="/login" />;
-}; */
-
-
-
 const PrivateRoute = ({ children }) => {
     const token = localStorage.getItem('token');
 
@@ -21,7 +14,7 @@ const PrivateRoute = ({ children }) => {
 
         console.log('decodedToken.exp', decodedToken.exp)
         console.log('Date.now()', Date.now())
-        
+
         // Verifica se o token está expirado
         if (decodedToken.exp * 1000 < Date.now()) {
             localStorage.removeItem('token');

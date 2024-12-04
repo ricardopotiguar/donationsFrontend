@@ -45,7 +45,7 @@ function Donations() {
     <div>
       < Header />
       <div className='container'>
-        <form>
+        <form id='form-donation'>
           <h2>DONATION</h2>
           <input name='nome' type='text' placeholder='Nome' ref={inputName}/>
           <input name='idade' type='number' placeholder='Idade' ref={inputAge}/>

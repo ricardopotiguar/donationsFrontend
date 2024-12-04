@@ -13,7 +13,7 @@ h2 {
 
 
 
-form {
+#form-donation {
 
   display: flex;
   flex-direction: column;

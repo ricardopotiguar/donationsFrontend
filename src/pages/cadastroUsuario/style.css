@@ -6,8 +6,11 @@
 
 #container-cadastrousuario-body {
   flex: 1; /* Flexível, ocupa o espaço disponível */
-  align-self: center;
+  display: flex;
   padding-top: 20px;
+  width: 530px;
+  justify-content: center;
+  margin: 0 auto; /* Centraliza no contêiner pai */
 }
 
 #form-cadastrousuario {
@@ -19,11 +22,12 @@
   background-color: #2E2D4E;
   width: 530px;
   margin-bottom: 20px;
+  box-sizing: border-box; /* Inclui padding e bordas na largura */
   
   & h2 {
     color: #fff;
     font-size: 28px;
-    align-self: center;
+    text-align: center;
   } 
 
   & button {

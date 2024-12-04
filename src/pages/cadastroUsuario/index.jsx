@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react'
+import { useRef } from 'react'
 import './style.css'
 import api from '../../services/api.js'
 import Header from '../../components/header'
@@ -6,19 +6,12 @@ import Footer from '../../components/footer'
 import { useNavigate } from 'react-router-dom';
 
 function CadastroUsuario() {
-  const [users, setUsers] = useState([])
 
   const inputName = useRef()
   const inputAge = useRef()
   const inputEmail = useRef()
   const inputPhone = useRef()
   const inputPassword = useRef()
-
-  async function getUsers(){
-    const responseUsuarios = await api.get('/api/v1/usuarios')
-    setUsers(responseUsuarios.data)
-    console.log(users)
-  }
 
   async function createUsers(){
     await api.post('/api/v1/usuarios', {
@@ -32,9 +25,6 @@ function CadastroUsuario() {
 
     navigate('/sucesso');
   } 
-
-  useEffect(() => {
-  }, []);
 
   const navigate = useNavigate()
 

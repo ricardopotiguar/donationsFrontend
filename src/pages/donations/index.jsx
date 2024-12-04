@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react'
 import './style.css'
 import api from '../../services/api.js'
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 import Trash from '../../assets/trash.png'
 
 function Donations() {
@@ -69,6 +70,7 @@ function Donations() {
           </div>
         ))}
      </div>
+     <Footer />
     </div>
   )
 }

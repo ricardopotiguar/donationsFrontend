@@ -96,14 +96,20 @@
     color: white;
     cursor: pointer;
 }
-
-
+#container-header-user{
+    display: flex;
+    flex-direction: row;
+    font-size: 14px;
+    gap: 20px;
+    align-items: center;
+}
 
 
 @media (max-width: 750px) {
     #div-header {
         margin-left: 2%;
         margin-right: 2%;
+
     }
 }
 

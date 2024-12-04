@@ -15,9 +15,17 @@ function App() {
         <Route path="/cadastro" element={<CadastroUsuario />} />
         <Route path="/sucesso" element={<Success />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/donation" element={<PrivateRoute />}>
+        <Route 
+          path="/donation"
+          element={
+            <PrivateRoute>
+                <Donations />
+            </PrivateRoute>
+          } 
+        />  
+{/*         <Route path="/donation" element={<PrivateRoute />}>
           <Route path="" element={<Donations />} /> 
-        </Route>  
+        </Route>   */}
       </Routes>
     </Router>
   );

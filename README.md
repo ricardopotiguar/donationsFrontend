@@ -23,6 +23,12 @@ npm install axios
  ```bash
 npm install react-router-dom
 ```
+
+ ## Executando comando para importação da biblioteca para decodificar token de autenticação (fazer 1 vez)   ##
+ ```bash
+npm install jwt-decode
+```
+
 _____________________________________
 
  ## Ativando o ambiente local (executar toda vez para rodar sitema no ambiente local) ##

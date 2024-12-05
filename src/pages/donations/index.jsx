@@ -16,15 +16,21 @@ function Donations() {
 
   useEffect(() => {
     fetchNeeds();
-    console.log('needs useEffects', needs)
   }, [searchTerm, currentPage, filters]);
 
 
-  async function fetchNeeds() {
+  // Função para buscar dados da API
+  const fetchNeeds = async () => {
     try {
-      const response = await api.get(`/api/v1/necessidades?search=${searchTerm}&page=${currentPage}&limit=${itemsPerPage}`)
-      setNeeds(response.data)
-      console.log('response fetchNeeds', response)
+      const queryParams = new URLSearchParams({
+        search: searchTerm,
+        page: currentPage,
+        limit: itemsPerPage,
+        ...filters, // Adiciona filtros dinamicamente
+      }).toString();
+
+      const response = await api.get(`/api/v1/necessidades?${queryParams}`);
+      setNeeds(response.data);
     } catch (error) {
       console.error('Erro ao buscar necessidades:', error);
     }
@@ -37,6 +43,15 @@ function Donations() {
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
+  };
+
+  // Manipula a alteração de filtros
+  const handleFilterChange = (filterName, value) => {
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [filterName]: value,
+    }));
+    setCurrentPage(1); // Reinicia na página 1 após filtrar
   };
 
   return (
@@ -55,27 +70,17 @@ function Donations() {
 
         {/* Layout com Filtros e Listagem */}
         <div className="content">
-          <aside className="filters">
-            <h3>Filtros</h3>
-            <ul>Categoria
-              <li>
-                <input
-                  type="checkbox"
-                  value="produto"
-                  onChange={(e) => setFilters([...filters, e.target.value])}
-                />
-                Produtos
-              </li>
-              <li>
-                <input
-                  type="checkbox"
-                  value="serviço"
-                  onChange={(e) => setFilters([...filters, e.target.value])}
-                />
-                Serviços
-              </li>
-            </ul>
-          </aside>
+          <div>
+            <label>Categoria</label>
+            <select
+              value={filters.type}
+              onChange={(e) => handleFilterChange('type', e.target.value)}
+            >
+              <option value="">Todas</option>
+              <option value="serviço">Serviços</option>
+              <option value="produto">Produtos</option>
+            </select>
+          </div>
 
           <section className="cards">
             {needs.map((need) => (

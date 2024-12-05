@@ -3,7 +3,7 @@ import './style.css'
 import api from '../../services/api.js'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
-import Trash from '../../assets/trash.png'
+import BannerAjuda from '../../assets/banner_ajuda.jpg'
 
 function Donations() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -60,6 +60,7 @@ function Donations() {
       <div className="search-page">
         {/* Campo de Busca */}
         <div className="search-bar">
+          <h1>Necessidades</h1>
           <input
             type="text"
             placeholder="Buscar necessidades..."
@@ -70,7 +71,7 @@ function Donations() {
 
         {/* Layout com Filtros e Listagem */}
         <div className="content">
-          <div>
+          <div className="content-filters"> 
             <label>Categoria</label>
             <select
               value={filters.type}
@@ -85,10 +86,10 @@ function Donations() {
           <section className="cards">
             {needs.map((need) => (
               <div className="card" key={need.id}>
-                <img src={Trash} alt={need.title} />
+                <img src={BannerAjuda} alt={need.title} />
                 <h4>{need.title}</h4>
-                <p>{need.type}</p>
                 <p>{need.description}</p>
+                <span className='card-categoria'>{need.type}</span>
               </div>
             ))}
           </section>

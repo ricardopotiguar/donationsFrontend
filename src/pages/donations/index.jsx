@@ -6,71 +6,104 @@ import Footer from '../../components/footer'
 import Trash from '../../assets/trash.png'
 
 function Donations() {
-  const [users, setUsers] = useState([])
-
-  const inputName = useRef()
-  const inputAge = useRef()
-  const inputEmail = useRef()
-  const inputPhone = useRef()
-  const inputPassword = useRef()
-
-  async function getUsers(){
-    const responseUsuarios = await api.get('/api/v1/usuarios')
-    setUsers(responseUsuarios.data)
-    console.log(users)
-  }
-
-  async function createUsers(){
-    await api.post('/api/v1/usuarios', {
-      name: inputName.current.value,
-      age: inputAge.current.value,
-      email: inputEmail.current.value,
-      type: "doador",
-      phone: inputPhone.current.value,
-      password: inputPassword.current.value
-    })
-    getUsers()
-  }
-
-  async function deleteUser(userId){
-    await api.delete(`/api/v1/usuarios/${userId}`)
-    getUsers()
-  }
- 
+  const [searchTerm, setSearchTerm] = useState('');
+  const [needs, setNeeds] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+  const [filters, setFilters] = useState({
+    type: ''
+  });
 
   useEffect(() => {
-    getUsers()
-  }, []);
+    fetchNeeds();
+    console.log('needs useEffects', needs)
+  }, [searchTerm, currentPage, filters]);
+
+
+  async function fetchNeeds() {
+    try {
+      const response = await api.get(`/api/v1/necessidades?search=${searchTerm}&page=${currentPage}&limit=${itemsPerPage}`)
+      setNeeds(response.data)
+      console.log('response fetchNeeds', response)
+    } catch (error) {
+      console.error('Erro ao buscar necessidades:', error);
+    }
+  };
+
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+    setCurrentPage(1); // Reinicia para a primeira página ao buscar
+  };
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
 
   return (
     <div>
       < Header />
-      <div className='container'>
-        <form id='form-donation'>
-          <h2>DONATION</h2>
-          <input name='nome' type='text' placeholder='Nome' ref={inputName}/>
-          <input name='idade' type='number' placeholder='Idade' ref={inputAge}/>
-          <input name='email' type='email' placeholder='Email' ref={inputEmail}/>
-          <input name='phone' type='tel' placeholder='Celular' ref={inputPhone}/>
-          <input name='password' type='password' placeholder='Senha' ref={inputPassword}/>
-          <button type='button' onClick={createUsers}>Cadastrar</button>
-        </form>
+      <div className="search-page">
+        {/* Campo de Busca */}
+        <div className="search-bar">
+          <input
+            type="text"
+            placeholder="Buscar necessidades..."
+            value={searchTerm}
+            onChange={handleSearch}
+          />
+        </div>
 
-        {users.map(user => (
+        {/* Layout com Filtros e Listagem */}
+        <div className="content">
+          <aside className="filters">
+            <h3>Filtros</h3>
+            <ul>Categoria
+              <li>
+                <input
+                  type="checkbox"
+                  value="produto"
+                  onChange={(e) => setFilters([...filters, e.target.value])}
+                />
+                Produtos
+              </li>
+              <li>
+                <input
+                  type="checkbox"
+                  value="serviço"
+                  onChange={(e) => setFilters([...filters, e.target.value])}
+                />
+                Serviços
+              </li>
+            </ul>
+          </aside>
 
-          <div key={user.id} className='card'>
-            <div>
-              <p>Nome: <span>{ user.name}</span></p>
-              <p>Idade: <span>{ user.age}</span></p>
-              <p>Email: <span>{ user.email}</span></p>
-            </div>
-            <button onClick={() => deleteUser(user.id)}>
-              <img src={Trash} alt="trash" style={{ width: '30px', height: 'auto' }} />
-            </button>
-          </div>
-        ))}
-     </div>
-     <Footer />
+          <section className="cards">
+            {needs.map((need) => (
+              <div className="card" key={need.id}>
+                <img src={Trash} alt={need.title} />
+                <h4>{need.title}</h4>
+                <p>{need.type}</p>
+                <p>{need.description}</p>
+              </div>
+            ))}
+          </section>
+        </div>
+
+        {/* Paginação */}
+        <div className="pagination">
+          <button
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Anterior
+          </button>
+          <span>Página {currentPage}</span>
+          <button onClick={() => handlePageChange(currentPage + 1)}>
+            Próxima
+          </button>
+        </div>
+      </div>
+      <Footer />
     </div>
   )
 }

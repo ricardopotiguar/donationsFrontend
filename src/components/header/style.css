@@ -1,7 +1,8 @@
 #header {
     background: linear-gradient(180deg, #3e3d72 0%, rgba(30, 29, 79, 0.8) 100%);
     position: relative;
-    z-index: 10; /* Certifica que a imagem fica atrás do header */
+    z-index: 10;
+    /* Certifica que a imagem fica atrás do header */
 }
 
 #div-header {
@@ -28,7 +29,7 @@
 
     & button {
         flex-shrink: 0;
-        /* Impede que o botão encolha */    
+        /* Impede que o botão encolha */
         border-radius: 10px;
         /* background-color: #8B8AE1; */
         background: linear-gradient(180deg, #8e8cbe 0%, rgba(64, 62, 158, 0.6) 100%);
@@ -96,12 +97,47 @@
     color: white;
     cursor: pointer;
 }
-#container-header-user{
+
+#container-header-user {
     display: flex;
     flex-direction: row;
     font-size: 14px;
     gap: 20px;
     align-items: center;
+}
+
+@media (max-width: 1050px) {
+    #container-header-user {
+        display: none;
+    }
+    nav ul.menu-list.active {
+        display: flex;
+        /* Mostrar menu quando ativo */
+    }
+
+    .menu-list li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        /* Mostrar o botão de menu */
+    }
+    .menu-list {
+        display: none;
+        /* Ocultar menu padrão */
+        flex-direction: column;
+        /* Alterar layout para vertical */
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: #333;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .div-buttons {
+        display: none;
+    }
 }
 
 
@@ -120,41 +156,11 @@
         /* Reduz o tamanho do texto em telas menores */
     }
 
-    .div-buttons {
-        display: none;
-    }
 
-    /*     button {
-        font-size: 0.9rem;
-         Ajusta o botão para telas pequenas 
-        padding: 5px 10px;
-     */
 
-    .menu-list {
-        display: none;
-        /* Ocultar menu padrão */
-        flex-direction: column;
-        /* Alterar layout para vertical */
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background-color: #333;
-        padding: 10px;
-        border-radius: 5px;
-    }
 
-    nav ul.menu-list.active {
-        display: flex;
-        /* Mostrar menu quando ativo */
-    }
 
-    .menu-list li {
-        margin: 10px 0;
-    }
 
-    .menu-toggle {
-        display: block;
-        /* Mostrar o botão de menu */
-    }
+
 
 }

@@ -179,8 +179,7 @@ body {
 }
 
 .container-card-ultima-linha button:hover {
-  background-color: #45a049;
-  /* Cor do botão ao passar o mouse */
+  opacity: 0.7;
 }
 
 

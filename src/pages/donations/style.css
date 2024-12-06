@@ -124,6 +124,7 @@ body {
   text-align: left;
   display: -webkit-box;
   -webkit-line-clamp: 5; /* Número de linhas desejadas */
+  line-clamp: 5; 
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis; /* Adiciona reticências (...) ao final */

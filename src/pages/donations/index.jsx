@@ -3,7 +3,7 @@ import './style.css'
 import api from '../../services/api.js'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
-import BannerAjuda from '../../assets/banner_ajuda.jpg'
+import SapatoSocial from '../../assets/sapato-social-masculino.avif'
 
 function Donations() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -13,6 +13,7 @@ function Donations() {
   const [filters, setFilters] = useState({
     type: ''
   });
+  const [totalItems, setTotalItems] = useState(0); // Total de itens no banco
 
   useEffect(() => {
     fetchNeeds();
@@ -30,7 +31,8 @@ function Donations() {
       }).toString();
 
       const response = await api.get(`/api/v1/necessidades?${queryParams}`);
-      setNeeds(response.data);
+      setNeeds(response.data.data);
+      setTotalItems(response.data.totalItems);
     } catch (error) {
       console.error('Erro ao buscar necessidades:', error);
     }
@@ -42,6 +44,9 @@ function Donations() {
   };
 
   const handlePageChange = (newPage) => {
+    if (newPage >= 1 && newPage <= Math.ceil(totalItems / itemsPerPage)) {
+      setCurrentPage(newPage);
+    }
     setCurrentPage(newPage);
   };
 
@@ -71,7 +76,7 @@ function Donations() {
 
         {/* Layout com Filtros e Listagem */}
         <div className="content">
-          <div className="content-filters"> 
+          <div className="content-filters">
             <label>Categoria</label>
             <select
               value={filters.type}
@@ -83,31 +88,39 @@ function Donations() {
             </select>
           </div>
 
-          <section className="cards">
-            {needs.map((need) => (
-              <div className="card" key={need.id}>
-                <img src={BannerAjuda} alt={need.title} />
-                <h4>{need.title}</h4>
-                <p>{need.description}</p>
-                <span className='card-categoria'>{need.type}</span>
-              </div>
-            ))}
-          </section>
+          <div className='contente-cards-pagination'>
+            <section className="cards">
+              {needs.map((need) => (
+                <div className="card" key={need.id}>
+                  <img src={SapatoSocial} alt={need.title} />
+                  <h4>{need.title}</h4>
+                  <p>{need.description}</p>
+                  <div className='container-card-ultima-linha'>
+                    <span className='card-categoria'>{need.type}</span>
+                    <button>Fazer Doação</button>
+                  </div>
+                </div>
+              ))}
+            </section>
+            {/* Paginação */}
+            <div className="pagination">
+              <button
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+              >
+                Anterior
+              </button>
+              <span>Página {currentPage}</span>
+              <button 
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === Math.ceil(totalItems / itemsPerPage)}>
+                Próxima
+              </button>
+            </div>
+          </div>
         </div>
 
-        {/* Paginação */}
-        <div className="pagination">
-          <button
-            onClick={() => handlePageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            Anterior
-          </button>
-          <span>Página {currentPage}</span>
-          <button onClick={() => handlePageChange(currentPage + 1)}>
-            Próxima
-          </button>
-        </div>
+
       </div>
       <Footer />
     </div>

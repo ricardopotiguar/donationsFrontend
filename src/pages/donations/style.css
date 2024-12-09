@@ -230,11 +230,15 @@ body {
 #modalStyle {
   background-color: #454379;
   border-radius: 10px;
-  padding: 20px;
-  width: 500px;
+  padding: 50px;
+  width: 700px;
   text-align: center;
   z-index: 1001;
-  color: #fff
+  color: #fff;
+
+  & p {
+    text-align: justify;
+  }
   
 }
 

@@ -5,6 +5,7 @@ import Header from '../../components/header'
 import Footer from '../../components/footer'
 import SapatoSocial from '../../assets/sapato-social-masculino.avif'
 import { jwtDecode } from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 
 function Donations() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -18,6 +19,8 @@ function Donations() {
   const [isModalConfirmationOpen, setIsModalConfirmationOpen] = useState(false);
   const [userNeedIdForDonation, setUserNeedIdForDonation] = useState('');
   const [userNeedQuantityForDonation, setUserNeedQuantityForDonation] = useState(''); 
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetchNeeds();
@@ -60,7 +63,7 @@ function Donations() {
         "quantity": UserNeedQuantity
       })
 
-    /*   navigate('/sucesso');  */
+      navigate('/donation-success')
 
     } catch (error) {
       console.error('Erro ao realizar programação de doação:', error);
@@ -172,9 +175,10 @@ function Donations() {
         <div id='modalOverlayStyle'>
           <div id='modalStyle'>
             <h2>Confirmar Doação</h2>
-            <p>Você tem certeza que deseja realizar esta ação?</p>
             <br />
-            <p>Ao confirmar você receberá um e-mail com as informações de contato da pessoa que possui esta necessidade. Esta pessoa também receberá um e-mail com os seus dados, para que possam combinar a melhor forma de realizar a entrega do produto doado ou a prestação do serviço doado.</p>
+            <h3>Você tem certeza que deseja realizar esta ação?</h3>
+            <br />
+            <p>Ao confirmar você receberá um e-mail com as informações de contato da pessoa que possui esta necessidade. Da mesma forma, ela também receberá suas informações de contato, permitindo que vocês combinem a melhor forma de realizar a entrega do produto ou a prestação do serviço doado.</p>
             <div id='modalActionsStyle'>
               <button onClick={handleCloseConfirmationModal} id='cancelButtonStyle'>
                 Cancelar

@@ -65,8 +65,8 @@ function Home() {
           <img id='home-body-box-left2-image' src={IconeTrocaDeContatos} alt="cadastro" />
         </div>
         <div id='container-home-body-box-left2-text'>
-          <h2>Passo 1 - Cadastro das Necessidades</h2>
-          <p>As pessoas que possuem algum tipo de necessidade (produtos ou serviços) cadastram suas necessidades através de uma instituição parceira confiável.</p>
+          <h2>Passo 3 - Troca de contatos</h2>
+          <p>A plataforma irá compartilhar os dados de contato das pessoas envolvidas, ou seja, tanto da pessoa doadora, quanto da pessoa que possui a necessidade (em alguns casos da instituição parceira que está auxiliando a pessoa que possui a necessidade) para que possam marcar a melhor forma de realizar a entrega da doação e combinarem a melhor data e horário.</p>
         </div>
       </div>
       <br />

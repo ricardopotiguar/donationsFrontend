@@ -59,28 +59,23 @@
 
 @media (max-width: 570px) {
   #form-cadastrousuario {
-    width: 99%;
-
-    & button {
-      width: 420px;
+    width: 95%;
     }
+
+
+  #container-cadastrousuario-body{
+    width: 95%;
   }
 }
 
 @media (max-width: 500px) {
   #form-cadastrousuario {
-
-    & button {
-      width: 380px;
+    width: 93%;
     }
-  }
 }
 
 @media (max-width: 450px) {
   #form-cadastrousuario {
-
-    & button {
-      width: 350px;
+    width: 93%;
     }
-  }
 }

@@ -3,7 +3,6 @@ import './style.css'
 import api from '../../services/api.js'
 import Header from '../../components/header'
 import Footer from '../../components/footer'
-import SapatoSocial from '../../assets/sapato-social-masculino.avif'
 import { jwtDecode } from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 
@@ -146,7 +145,7 @@ function Donations() {
             <section className="cards">
               {needs.map((need) => (
                 <div className="card" key={need.id}>
-                  <img src={SapatoSocial} alt={need.title} />
+                  <img src={need.imageUrl} alt={need.title} />
                   <h4>{need.title}</h4>
                   <p>{need.description}</p>
                   <p>Quantidade:  {need.quantity}</p> 

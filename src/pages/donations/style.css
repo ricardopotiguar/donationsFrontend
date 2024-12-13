@@ -123,8 +123,8 @@ body {
 }
 
 .card img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  max-height: 220px;
   margin-bottom: 15px;
   /* Ajuste para dar espaço entre a imagem e o texto */
 }
@@ -284,11 +284,7 @@ body {
     & select {
       margin-top: 0;
     }
-
   }
-}
-
-@media (max-width: 750px) {
   .search-page {
     margin-left: 2%;
     margin-right: 2%;
@@ -297,3 +293,4 @@ body {
     width: 90%;
   }
 }
+

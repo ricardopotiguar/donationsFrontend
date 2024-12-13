@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 const api = axios.create({
-    baseURL: 'https://donations-api-mysql.onrender.com'
+     baseURL: 'https://donations-api-mysql.onrender.com';
+    
 })
 
 export default api

@@ -7,31 +7,15 @@
  ```bash
 npm create vite@latest
 ```
- ## Executando comando para criação das dependencias mapeadas pelo vite (fazer 1 vez) ##
+ ## Ao rodar o projeto pela primeira vez, executar o comando abaixo para criação das dependencias ##
 
  ```bash
 npm install
 ```
-
- ## Executando comando para criação do Axios (biblioteca para chamada de APIs) (fazer 1 vez)  ##
-
- ```bash
-npm install axios
-```
-
- ## Executando comando para importação da biblioteca para gerenciar as rotas (páginas) do site (fazer 1 vez)   ##
- ```bash
-npm install react-router-dom
-```
-
- ## Executando comando para importação da biblioteca para decodificar token de autenticação (fazer 1 vez)   ##
- ```bash
-npm install jwt-decode
-```
-
 _____________________________________
 
  ## Ativando o ambiente local (executar toda vez para rodar sitema no ambiente local) ##
+ 
 ```bash
 npm run dev
 ```
